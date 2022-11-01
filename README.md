@@ -1,3 +1,3 @@
-# Actions
+# ✔️ Checkout
 
-Collection of personal GitHub Actions organized in branches.
+This GitHub Action checks out the repository where the Action is triggered, so that it is accessible by a workflow.

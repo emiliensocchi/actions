@@ -1,0 +1,12 @@
+name: 'Checkout'
+description: 'Checkout the latest version of a Git repository'
+inputs:
+  repository:
+    description: 'Repository name with owner'
+    required: false
+    default: ${{ github.repository }}
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository }}
