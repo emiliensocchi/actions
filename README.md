@@ -1,3 +1,3 @@
-# Actions
+# ✔️ Sync to remote directory
 
-Collection of personal GitHub Actions organized in branches.
+This GitHub Action copies a specific directory from the current repository to a remote directory located in another repository, in order to keep their content synchronized at all time.

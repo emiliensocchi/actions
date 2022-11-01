@@ -1,0 +1,34 @@
+name: 'Sync to remote directory'
+description: 'Pushes a specific directory to a remote directory located in another repository, in order to keep their content synchronized at all time'
+inputs:
+  source_directory:
+    description: 'Source directory from the origin repository'
+    required: true
+  destination_directory:
+    description: 'Destination directory in the destination repository'
+    required: true
+  destination_repo:
+    description: 'Destination repository'
+    required: true
+  user_email:
+    description: 'Email for the git commit'
+    required: true
+  user_name:
+    description: 'Github username for the git commit'
+    required: true
+  commit_message:
+    description: 'A custom message for the git commit'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.source-directory }}
+    - ${{ inputs.destination-directory }}
+    - ${{ inputs.destination-repo }}
+    - ${{ inputs.user-email }}
+    - ${{ inputs.user-name }}
+    - ${{ inputs.commit-message }}
+branding:
+  icon: 'git-commit'
+  color: 'green'
