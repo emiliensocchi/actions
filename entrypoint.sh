@@ -32,7 +32,7 @@ fi
 GIT_SERVER='github.com'
 DESTINATION_BRANCH='main'
 TEMP_DIR=$(mktemp -d)
-DESTINATION_FILE="$TEMP_DIR/$INPUT_DESTINATION_file"
+DESTINATION_FILE="$TEMP_DIR/$INPUT_DESTINATION_FILE"
 
 ## Stage 1 ##############################################################
 
@@ -44,6 +44,10 @@ git clone --single-branch --branch $DESTINATION_BRANCH "https://x-access-token:$
 ## Stage 2 ##############################################################
 
 echo "Copying content from source file to destination file"
+
+echo "$INPUT_DESTINATION_FILE"
+echo "$DESTINATION_FILE"
+
 cat "$INPUT_SOURCE_FILE" > "$DESTINATION_FILE"
 
 ## Stage 3 ##############################################################
