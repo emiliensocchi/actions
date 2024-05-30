@@ -44,10 +44,6 @@ git clone --single-branch --branch $DESTINATION_BRANCH "https://x-access-token:$
 ## Stage 2 ##############################################################
 
 echo "Copying content from source file to destination file"
-
-echo "$INPUT_DESTINATION_FILE"
-echo "$DESTINATION_FILE"
-
 cat "$INPUT_SOURCE_FILE" > "$DESTINATION_FILE"
 
 ## Stage 3 ##############################################################
@@ -58,7 +54,7 @@ then
   INPUT_COMMIT_MESSAGE="Synchronized from https://$GIT_SERVER/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
 fi
 
-cd "$DESTINATION_DIR"
+cd "$TEMP_DIR"
 git add .
 if git status | grep -q "Changes to be committed"
 then
