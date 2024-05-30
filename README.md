@@ -1,3 +1,3 @@
-# ✔️ Sync to remote directory
+# ✔️ Sync to remote file
 
-This GitHub Action copies a specific directory from the current repository to a remote directory located in another repository, in order to keep their content synchronized at all time.
+This GitHub Action copies a specific file from the current repository to a remote file located in another repository, in order to keep their content synchronized at all time.

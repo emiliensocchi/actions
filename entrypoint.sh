@@ -5,15 +5,15 @@
 set -e
 set -x
 
-if [[ -z "$INPUT_SOURCE_DIRECTORY" ]]
+if [[ -z "$INPUT_SOURCE_FILE" ]]
 then
-  echo 'Source directory must be defined'
+  echo 'Source file must be defined'
   return 1
 fi
 
-if [[ -z "$INPUT_DESTINATION_DIRECTORY" ]]
+if [[ -z "$INPUT_DESTINATION_FILE" ]]
 then
-  echo 'Destination directory must be defined'
+  echo 'Destination file must be defined'
   return 1
 fi
 
@@ -32,7 +32,7 @@ fi
 GIT_SERVER='github.com'
 DESTINATION_BRANCH='main'
 TEMP_DIR=$(mktemp -d)
-DESTINATION_DIR="$TEMP_DIR/$INPUT_DESTINATION_DIRECTORY"
+DESTINATION_FILE="$TEMP_DIR/$INPUT_DESTINATION_file"
 
 ## Stage 1 ##############################################################
 
@@ -43,15 +43,8 @@ git clone --single-branch --branch $DESTINATION_BRANCH "https://x-access-token:$
 
 ## Stage 2 ##############################################################
 
-echo "Copying content from source directory to destination directory"
-if [[ -d $DESTINATION_DIR ]]
-then
-  rm -rf "$DESTINATION_DIR"/*
-else
-  mkdir -p "$DESTINATION_DIR"
-fi
-
-cp -R "$(pwd)"/* "$DESTINATION_DIR"
+echo "Copying content from source file to destination file"
+cat "$INPUT_SOURCE_FILE" > "$DESTINATION_FILE"
 
 ## Stage 3 ##############################################################
 

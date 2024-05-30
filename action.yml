@@ -1,11 +1,11 @@
-name: 'Sync to remote directory'
-description: 'Pushes a specific directory to a remote directory located in another repository, in order to keep their content synchronized at all time'
+name: 'Sync to remote file'
+description: 'Pushes a specific file to a remote file located in another repository, in order to keep their content synchronized at all time'
 inputs:
-  source_directory:
-    description: 'Source directory from the origin repository'
+  source_file:
+    description: 'Source file from the origin repository'
     required: true
-  destination_directory:
-    description: 'Destination directory in the destination repository'
+  destination_file:
+    description: 'Destination file in the destination repository'
     required: true
   destination_repo:
     description: 'Destination repository'
@@ -23,8 +23,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.source-directory }}
-    - ${{ inputs.destination-directory }}
+    - ${{ inputs.source-file }}
+    - ${{ inputs.destination-file }}
     - ${{ inputs.destination-repo }}
     - ${{ inputs.user-email }}
     - ${{ inputs.user-name }}
